@@ -234,3 +234,69 @@ const cities = ["Tokyo","Cairo","Los Angeles","Paris","Seattle"];
 const newCityArr = cities.slice(2,4);
 console.log(newCityArr); //["Los Angeles","Paris"]
 ```
+## splice()  method
+
+Unlike the slice() method, the splice() method will change the contents of the original array. The splice() method is used to add or remove elements of an existing array and the return value will be the removed items from the array.
+
+If nothing was removed from the array, then the return value will just be an empty array.
+
+- Here is the basic syntax.
+
+> splice(start, optional delete count, optional items to add)
+
+
+```javascript
+
+const food = ['pizza', 'cake', 'salad', 'cookie'];
+food.splice(1,0,"burrito");
+console.log(food); //['pizza','burrito', 'cake', 'salad', 'cookie']
+
+```
+If we  console.log(food.splice(1,0,"burrito")), then we would get back an empty array because nothing was removed from our array.
+
+```javascript
+const food = ['pizza', 'cake', 'salad', 'cookie'];
+
+let newArr = food.splice(2,1);
+console.log(newArr); //[salad]
+console.log(food); //['pizza', 'cake',  'cookie']
+```
+
+### Conclusion
+The slice and splice array methods might seem similar to each other, but there are a few key differences.
+
+The slice() method can be used to create a copy of an array or return a portion of an array. It is important to note that the slice() method does not alter the original array but instead creates a shallow copy.
+
+## indexof() method
+
+The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
+- syntax
+> indexOf(searchElement)
+
+> indexOf(searchElement, fromIndex)
+
+```javascript
+const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+
+console.log(beasts.indexOf('bison'));
+// Expected output: 1
+
+// Start from index 2
+console.log(beasts.indexOf('bison', 2));
+// Expected output: 4
+
+console.log(beasts.indexOf('giraffe'));
+// Expected output: -1
+
+```
+
+```javascript
+const array = [2, 9, 2, 9];
+array.indexOf(2); // 0
+array.indexOf(7); // -1
+array.indexOf(9, 2); // 3
+array.indexOf(2, -1); // -1
+array.indexOf(2, -3); // 0
+
+```
