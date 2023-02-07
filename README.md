@@ -39,3 +39,14 @@ If we want to sort the numbers in descending order, this time we need to subtrac
 const numbers = [3, 23, 12];
 
 numbers.sort(function(a, b){return b - a}); // --> 23, 12, 3
+
+
+## reverce() mothod
+
+Array will modified when the reverse method is applied to it.
+
+If you do not want the array to be modified, you can clone it before applying the reverse. The reverse method also returns the reversed array, so you can assign that array to a variable.
+
+Here's how to duplicate and reverse an array:
+
+/*code 
