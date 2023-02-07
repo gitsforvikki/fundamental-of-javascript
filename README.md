@@ -5,41 +5,44 @@
 > Array of Strings
 - Let's start with strings:
 
-const teams = ['Real Madrid', 'Manchester Utd', 'Bayern Munich', 'Juventus'];
 
-When we use the sort( ) method, elements will be sorted in ascending order (A to Z) by default:
+When we use the `sort( )` method, elements will be sorted in ascending order (A to Z) by default:
+```javascript
+const teams = ['Real Madrid', 'Manchester Utd', 'Bayern Munich', 'Juventus'];
 
 teams.sort(); 
 
 // ['Bayern Munich', 'Juventus', 'Manchester Utd', 'Real Madrid']
-If you prefer to sort the array in descending order, you need to use the reverse( ) method instead:
+```
+If you prefer to sort the array in descending order, you need to use the `reverse( )` method instead:
 
-Array of Numbers
+> Array of Numbers
     Sorting numbers is unfortunately not that simple. If we apply the sort method directly to a numbers array, we will see an unexpected result:
 
-
+```javascript
 const numbers = [3, 23, 12];
 
 numbers.sort(); // --> 12, 23, 3
-
-Why the sort( ) method isn't working for numbers
-    Actually it is working, but this problem happens because JavaScript sorts numbers alphabetically. Let me explain this in detail.
+```
+> Why the `sort( )` method isn't working for numbers
+    - Actually it is working, but this problem happens because JavaScript sorts numbers alphabetically. Let me explain this in detail.
     
-solution
+- solution
 
 All we need to is using the compare function inside the sort( ) method:
-
+```javascript
 const numbers = [3, 23, 12];
 
 numbers.sort(function(a, b){return a - b}); // --> 3, 12, 23
+```
 
+> If we want to sort the numbers in descending order, this time we need to subtract the second parameter (b) from the first one (a):
 
-If we want to sort the numbers in descending order, this time we need to subtract the second parameter (b) from the first one (a):
-
+```javascript
 const numbers = [3, 23, 12];
 
 numbers.sort(function(a, b){return b - a}); // --> 23, 12, 3
-
+```
 
 ## reverce() mothod
 
@@ -64,7 +67,7 @@ console.log(array)
 ```
 
 ## push() method
- The push() method will add one or more arguments at the end of an array in JavaScript.
+ The `push()` method will add one or more arguments at the end of an array in JavaScript.
  
  ```javascript
  let arr = [0, 1, 2, 3];
@@ -72,7 +75,7 @@ arr.push(4);
 console.log(arr); // [0, 1, 2, 3, 4]
 ```
 
-The push() method also returns the new length of the array.
+The `push()` method also returns the new length of the array.
 
 ```javascript
 let arr = [0, 1, 2, 3];
@@ -88,7 +91,7 @@ console.log(arr1); // [0, 1, 2, 3, 4, 5, 6, 7]
 ```
 ## pop() method
 
-The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
+The `pop()` method removes the last element from an array and returns that element. This method changes the length of the array.
 
 ```javascript
 
@@ -106,7 +109,7 @@ console.log(plants);
 // Expected output: Array ["broccoli", "cauliflower", "cabbage"]
 ```
 ## shift() method
-The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
+The `shift()` method removes the first element from an array and returns that removed element. This method changes the length of the array.
 
 The removed element from the array; undefined if the array is empty.
 
@@ -137,6 +140,7 @@ while (typeof (i = names.shift()) !== "undefined") {
     The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
     The new length property of the object upon which the method was called.
 //syntax
+
 unshift(element0)
 unshift(element0, element1)
 unshift(element0, element1, /* … ,*/ elementN)
@@ -167,7 +171,7 @@ console.log(arr);
 // [3, 2, 1, 4, 5, 6]
 ```
 ## concat() method
-The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+The `concat()` method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
 
 ```javascript
 const letters = ["a", "b", "c"];
