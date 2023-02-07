@@ -49,4 +49,16 @@ If you do not want the array to be modified, you can clone it before applying th
 
 Here's how to duplicate and reverse an array:
 
-/*code 
+``` javascript
+
+const array = [1, 2, 3, 4]
+
+const reversed = [...array].reverse()
+
+console.log(reversed)
+// [ 4, 3, 2, 1 ]
+
+console.log(array)
+// [ 1, 2, 3, 4 ]
+
+```
