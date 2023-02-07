@@ -2,8 +2,8 @@
 
 ## sort() methods
 
-Array of Strings
-Let's start with strings:
+> Array of Strings
+- Let's start with strings:
 
 const teams = ['Real Madrid', 'Manchester Utd', 'Bayern Munich', 'Juventus'];
 
@@ -165,4 +165,72 @@ arr.unshift(3);
 
 console.log(arr);
 // [3, 2, 1, 4, 5, 6]
+```
+## concat() method
+The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+
+```javascript
+const letters = ["a", "b", "c"];
+const numbers = [1, 2, 3];
+
+const alphaNumeric = letters.concat(numbers);
+console.log(alphaNumeric);
+// results in ['a', 'b', 'c', 1, 2, 3]
+```
+
+```javascript
+//The following code concatenates three arrays:
+
+
+const num1 = [1, 2, 3];
+const num2 = [4, 5, 6];
+const num3 = [7, 8, 9];
+
+const numbers = num1.concat(num2, num3);
+
+console.log(numbers);
+// results in [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+## join() method
+
+The join() method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. 
+
+```javascript
+const a = ["Wind", "Water", "Fire"];
+a.join(); // 'Wind,Water,Fire'
+a.join(", "); // 'Wind, Water, Fire'
+a.join(" + "); // 'Wind + Water + Fire'
+a.join(""); // 'WindWaterFire'
+```
+## slice() method
+
+The slice() method can be used to create a copy of an array or return a portion of an array. It is important to note that the slice() method does not alter the original array but instead creates a shallow copy.
+
+Here is the basic syntax:
+
+slice(optional start parameter, optional end parameter)
+
+```javascript
+const cities = ["Tokyo","Cairo","Los Angeles","Paris","Seattle"];
+cities.slice(); //["Tokyo","Cairo","Los Angeles","Paris","Seattle"]
+
+//use slice with first parameter
+const newCityArr = cities.slice(2);
+
+console.log(newCityArr); //["Los Angeles","Paris","Seattle"]
+
+//If the start parameter is greater than the last index of the array, then an empty array will be returned.
+const newCityArr = cities.slice(5);
+console.log(newCityArr); //[]
+
+```
+
+> If an end position is specified, then the slice() method will extract elements from the start position up to the end position. The end position will not be included in the extracted elements for the new array.
+
+```javascript
+const cities = ["Tokyo","Cairo","Los Angeles","Paris","Seattle"];
+
+const newCityArr = cities.slice(2,4);
+console.log(newCityArr); //["Los Angeles","Paris"]
 ```
