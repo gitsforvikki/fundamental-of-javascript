@@ -333,6 +333,98 @@ numbers.lastIndexOf(2, -2); // 0
 numbers.lastIndexOf(2, -1); // 3
 
 ```
+## find() method
+The `find()` method returns the first element in the provided array that satisfies the provided testing function. If no values satisfy the testing function, undefined is returned.
+
+```javascript
+const array1 = [5, 12, 8, 130, 44];
+
+const found = array1.find(element => element > 10);
+
+console.log(found);
+// Expected output: 12
+```
+```javascript
+const inventory = [
+  { name: "apples", quantity: 2 },
+  { name: "bananas", quantity: 0 },
+  { name: "cherries", quantity: 5 },
+];
+
+function isCherries(fruit) {
+  return fruit.name === "cherries";
+}
+
+console.log(inventory.find(isCherries));
+// { name: 'cherries', quantity: 5 }
+
+const result = inventory.find(({ name }) => name === "cherries");
+
+console.log(result); // { name: 'cherries', quantity: 5 }
+Copy to Clipboard
+```
+
+## every() method
+The `every()` method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
+
+
+```javascript
+const isBelowThreshold = (currentValue) => currentValue < 40;
+
+const array1 = [1, 30, 39, 29, 10, 13];
+
+console.log(array1.every(isBelowThreshold));
+// Expected output: true
+```
+
+```javascript
+//The following example tests whether all elements in the array are bigger than 10.
+
+function isBigEnough(element, index, array) {
+  return element >= 10;
+}
+[12, 5, 8, 130, 44].every(isBigEnough); // false
+[12, 54, 18, 130, 44].every(isBigEnough); // true
+```
+
+
+```javascript
+//Check if one array is a subset of another array
+const isSubset = (array1, array2) =>
+  array2.every((element) => array1.includes(element));
+
+console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 7, 6])); // true
+console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 8, 7])); // false
+```
+
+## include() mothod
+The `includes()` method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+
+```javascript
+const array1 = [1, 2, 3];
+
+console.log(array1.includes(2));
+// Expected output: true
+
+const pets = ['cat', 'dog', 'bat'];
+
+console.log(pets.includes('cat'));
+// Expected output: true
+
+console.log(pets.includes('at'));
+// Expected output: false
+```
+
+- Using `includes()` on sparse arrays
+You can search for undefined in a sparse array and get true.
+```javascript
+console.log([1, , 3].includes(undefined)); // true
+
+```
+
+
+
+
 
 
 ##Map, Reduce, and Filter  JS Array Functions
@@ -478,3 +570,4 @@ let employees = users
   });
 console.log(employees);
 ```
+
