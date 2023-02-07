@@ -331,4 +331,146 @@ numbers.lastIndexOf(2, -1); // 3
 ```
 
 
+##Map, Reduce, and Filter  JS Array Functions
 
+Map, reduce, and filter are all array methods in JavaScript. Each one will iterate over an array and perform a transformation or computation.
+## map() method
+The `map()` method is used for creating a new array from an existing one, applying a function to each one of the elements of the first array.
+> syntax
+```javascript
+var new_array = arr.map(function callback(element, index, array) {
+    // Return value for new_array
+}[, thisArg])
+```
+> Example
+
+```javascript
+let num = [1, 2, 41, 45, 20];
+
+function binary(x) {
+  return x.toString(2);
+}
+let newNum = num.map(binary);
+console.log(newNum);
+
+```
+```javascript
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(item => item * 2);
+console.log(doubled); // [2, 4, 6, 8]
+
+```
+## filter() array
+The `filter()` method takes each element in an array and it applies a conditional statement against it. If this conditional returns true, the element gets pushed to the output array. If the condition returns false, the element does not get pushed to the output array.
+
+```javascript
+const numbers = [1, 2, 3, 4];
+const evens = numbers.filter(item => item % 2 === 0);
+console.log(evens); // [2, 4]
+```
+
+```javascript
+const students = [
+  { name: 'Quincy', grade: 96 },
+  { name: 'Jason', grade: 84 },
+  { name: 'Alexis', grade: 100 },
+  { name: 'Sam', grade: 65 },
+  { name: 'Katie', grade: 90 }
+];
+
+const studentGrades = students.filter(student => student.grade >= 90);
+return studentGrades; // [ { name: 'Quincy', grade: 96 }, { name: 'Alexis', grade: 100 }, { name: 'Katie', grade: 90 } ]
+```
+## reduce() method
+The `reduce()` method reduces an array of values down to just one value. To get the output value, it runs a reducer function on each element of the array.
+
+The callback argument is a function that will be called once for every item in the array. This function takes four arguments, but often only the first two are used.
+
+>syntax
+
+```javascript
+arr.reduce((acc , curr)=>{
+        //reduce logic
+} , initial_value_of_acc);
+```
+- accumulator(acc) : the returned value of the previous iteration
+- currentValue(curr) : the current item in the array
+
+### Examples
+The following example adds every number together in an array of numbers.
+```javascript
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce(function (result, item) {
+  return result + item;
+}, 0);
+console.log(sum); // 10
+```
+
+```javascript
+//find out max of an array
+let numArray = [12, 76, 50, 35, 66];
+let maximum = numArray.reduce((max, current) => {
+  max = current > max ? current : max;
+  return max;
+});
+console.log(maximum);
+
+```
+In the next example, `reduce()` is used to transform an array of strings into a single object that shows how many times each string appears in the array. Notice this call to reduce passes an empty object {} as the initialValue parameter. This will be used as the initial value of the accumulator (the first argument) passed to the callback function.
+
+```javascript
+var pets = ['dog', 'chicken', 'cat', 'dog', 'chicken', 'chicken', 'rabbit'];
+
+var petCounts = pets.reduce(function(obj, pet){
+    if (!obj[pet]) {
+        obj[pet] = 1;
+    } else {
+        obj[pet]++;
+    }
+    return obj;
+}, {});
+
+console.log(petCounts); 
+
+/*
+Output:
+ { 
+    dog: 2, 
+    chicken: 3, 
+    cat: 1, 
+    rabbit: 1 
+ }
+ */
+ ```
+ 
+ ```javascript
+ 
+ let users =
+ 
+ [{"first_name":"Margot","last_name":"Liddicoat","email":"mliddicoat0@github.com","gender":"Female","age":11},
+{"first_name":"Mara","last_name":"Bendell","email":"mbendell1@cnet.com","gender":"Female","age":99},
+{"first_name":"Roch","last_name":"O'Brogan","email":"robrogan2@wired.com","gender":"Polygender","age":62},
+{"first_name":"Bayard","last_name":"Weeden","email":"bweeden3@cafepress.com","gender":"Genderfluid","age":66},
+{"first_name":"Loralie","last_name":"Alexsandrov","email":"lalexsandrov4@t-online.de","gender":"Female","age":93}];
+
+
+ //find the first name of all the people whose age greater than or equals to  50
+
+let people = users.filter((user) => {
+  if (user.age >= 50) {
+    return user.first_name;
+  }
+});
+let result = people.map((each) => {
+  return each.first_name;
+});
+console.log(result);
+
+//i can use filter and map together known as `chaining`
+let employees = users
+  .filter((user) => user.age > 50)
+  .map((user) => {
+    return user.first_name;
+  });
+console.log(employees);
+```
