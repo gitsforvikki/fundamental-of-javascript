@@ -579,6 +579,8 @@ console.log(employees);
 - for-of loop
 
 > while loop
+
+
         Before the statement is executed, condition is tested. If it evaluates to true, then the statement is executed. As long as condition is true, the         statement continues to execute. 
 ```javascript
     let e = 0;
@@ -588,6 +590,8 @@ console.log(employees);
     }
 ```
 > do-while loop
+
+
 The first thing that happens in this loop is the statement is executed. Once that happens, condition is checked. If condition evaluates to true, the statement executes again. 
 
 ```javascript
@@ -614,6 +618,8 @@ do {
 ```
 
 > for...in loop
+
+
 A for…in loop is used with an object in JavaScript. It’s structured like the following:
 
 ```javascript
@@ -641,6 +647,8 @@ for(const meal in foodIAte) {
 ```
 
 > For…of loops
+
+
 The last loop is the for…of loop. The for…of loop can be used with iterable objects, which includes arrays, maps, sets, strings, and more. It’s structured like the following:
 
 ```javascript
