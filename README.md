@@ -570,4 +570,95 @@ let employees = users
   });
 console.log(employees);
 ```
+## loops in javascript
 
+- while loop
+- do-while loop
+- for loop
+- for-in loop
+- for-of loop
+
+> while loop
+        Before the statement is executed, condition is tested. If it evaluates to true, then the statement is executed. As long as condition is true, the         statement continues to execute. 
+```javascript
+    let e = 0;
+    while (e < 4) {
+    console.log(e);
+     e++;
+    }
+```
+> do-while loop
+The first thing that happens in this loop is the statement is executed. Once that happens, condition is checked. If condition evaluates to true, the statement executes again. 
+
+```javascript
+let booksRead = 10;
+do {
+ console.log(`I read ${booksRead} books this year`);
+ booksRead++;
+} while (booksRead < 14);
+```
+
+
+
+> for loop
+ 
+ - syntax
+    for (initialExpression; conditionExpression; incrementExpression) {
+     statement
+    }
+
+
+```javascript
+    for (let i = 1; i <= 5; i++) {
+    console.log(“I can count to “ + i)
+```
+
+> for...in loop
+A for…in loop is used with an object in JavaScript. It’s structured like the following:
+
+```javascript
+for (variable in object) {
+ statement
+}
+```
+
+```javascript
+//example
+const foodIAte = {
+ breakfast: ‘eggs’,
+ lunch: ‘salad’,
+ dinner: ‘pizza’
+};
+for(const meal in foodIAte) {
+ console.log(`For ${meal}, I ate ${foodIAte[meal]}.`);
+};
+
+
+//output
+//For breakfast, I ate eggs.
+//For lunch, I ate salad.
+//For dinner, I ate pizza.
+```
+
+> For…of loops
+The last loop is the for…of loop. The for…of loop can be used with iterable objects, which includes arrays, maps, sets, strings, and more. It’s structured like the following:
+
+```javascript
+const string = “cat”;
+for (const value of string) {
+ console.log(value);
+}
+
+//output
+// c a t
+```
+
+```javascript
+const array = [5, 10, 15];
+for (const value of array) {
+ console.log(value);
+}
+
+//output
+//5 10 15
+```
