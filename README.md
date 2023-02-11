@@ -815,11 +815,6 @@ bar.call(window); // still 22
 ```
 
 
-## Javascript predefined core objects
-
-The predefined core objects are Array , Boolean , Date , Function , Math , Number , RegExp , and String .
-
-
 
 
 
@@ -906,3 +901,9 @@ var logPokemon = pokemonName.bind(pokemon); // creates new object and binds poke
 logPokemon('sushi', 'algorithms'); // Pika Chu  loves sushi and algorithms
 
 ```
+
+## Javascript predefined core objects
+
+The predefined core objects are Array , Boolean , Date , Function , Math , Number , RegExp , and String .
+
+
