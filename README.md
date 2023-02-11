@@ -907,3 +907,147 @@ logPokemon('sushi', 'algorithms'); // Pika Chu  loves sushi and algorithms
 The predefined core objects are Array , Boolean , Date , Function , Math , Number , RegExp , and String .
 
 
+## Math object
+
+- Math.floor()
+
+
+The Math.floor() static method always rounds down and returns the largest integer less than or equal to a given number.
+```javascript
+console.log(Math.floor(5.95));
+// Expected output: 5
+
+console.log(Math.floor(5.05));
+// Expected output: 5
+
+console.log(Math.floor(5));
+// Expected output: 5
+
+console.log(Math.floor(-5.05));
+// Expected output: -6
+
+```
+
+- Math.log()
+
+
+The Math.log() static method returns the natural logarithm (base e) of a number.
+
+```javascript
+function getBaseLog(x, y) {
+  return Math.log(y) / Math.log(x);
+}
+
+// 2 x 2 x 2 = 8
+console.log(getBaseLog(2, 8));
+// Expected output: 3
+
+// 5 x 5 x 5 x 5 = 625
+console.log(getBaseLog(5, 625));
+// Expected output: 4
+
+```
+
+- Math.log10()
+
+
+The Math.log10() static method returns the base 10 logarithm of a number. 
+
+- Math.max()
+
+
+The Math.max() static method returns the largest of the numbers given as input parameters, or -Infinity if there are no parameters.
+```javascript
+console.log(Math.max(1, 3, 2));
+// Expected output: 3
+
+console.log(Math.max(-1, -3, -2));
+// Expected output: -1
+
+const array1 = [1, 3, 2];
+
+console.log(Math.max(...array1));
+// Expected output: 3
+
+```
+
+
+- Math.min()
+The Math.min() static method returns the smallest of the numbers given as input parameters, or Infinity if there are no parameters.
+```javascript
+console.log(Math.min(2, 3, 1));
+// Expected output: 1
+
+console.log(Math.min(-2, -3, -1));
+// Expected output: -3
+
+const array1 = [2, 3, 1];
+
+console.log(Math.min(...array1));
+// Expected output: 1
+```
+
+- Math.pow()
+
+
+The Math.pow() static method returns the value of a base raised to a power. 
+
+That is
+
+𝙼𝚊𝚝𝚑.𝚙𝚘𝚠 ( 𝚡 , 𝚢 ) = x ^y
+
+```javascript
+console.log(Math.pow(7, 3));
+// Expected output: 343
+
+console.log(Math.pow(4, 0.5));
+// Expected output: 2
+
+console.log(Math.pow(7, -2));
+// Expected output: 0.02040816326530612
+//                  (1/49)
+
+console.log(Math.pow(-7, 0.5));
+// Expected output: NaN
+
+```
+
+- Math.random()
+
+
+The Math.random() static method returns a floating-point, pseudo-random number that's greater than or equal to 0 and less than 1
+
+```javascript
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+console.log(getRandomInt(3));
+// Expected output: 0, 1 or 2
+
+console.log(getRandomInt(1));
+// Expected output: 0
+
+console.log(Math.random());
+// Expected output: a number from 0 to <1
+
+
+```
+
+- Math.round()
+
+
+The Math.round() static method returns the value of a number rounded to the nearest integer.
+```javascript
+console.log(Math.round(0.9));
+// Expected output: 1
+
+console.log(Math.round(5.95), Math.round(5.5), Math.round(5.05));
+// Expected output: 6 6 5
+
+console.log(Math.round(-5.05), Math.round(-5.5), Math.round(-5.95));
+// Expected output: -5 -5 -6
+
+```
+
+
