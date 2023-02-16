@@ -1050,4 +1050,231 @@ console.log(Math.round(-5.05), Math.round(-5.5), Math.round(-5.95));
 
 ```
 
+## Axios
 
+Axios is an HTTP client library based on promises. It makes sending asynchronous HTTP requests to REST endpoints easier and helps you perform CRUD operations.
+
+Axios used to make GET, POST, and DELETE API requests in React. I mean, how i retrieve data from an API, add data to the API, and then delete data from our API.
+
+
+### Why Axios?
+
+Here are some reasons:
+
+- Axios uses XMLHttpRequest under the hood, and it is widely supported by most browsers. 
+
+
+- When sending requests, Axios automatically signifies the data, unlike fetch(), which requires us to do it manually.
+
+- Unlike the Fetch API, which requires you to check the status code and throw the error yourself, Axios has better error handling and can throw 400 and 500 range errors.
+
+
+### How to Get Started with Axios in React
+
+- How to Create the Axios Instance
+
+it's a good idea to create an Axios instance. It's not required, but it saves us time.
+
+To create an instance, we'll use the `.create()` method, which lets us specify information such as the URL and possibly headers:
+
+
+```javascript
+import axios from "axios";
+
+const client = axios.create({
+  baseURL: "https://jsonplaceholder.typicode.com/posts" 
+});
+```
+
+
+### How to Make a GET Request with Axios in React
+
+We'll use the variable and then attach the .get() method to make a GET request to our endpoint/API. Then we'll use a .then() callback to get back all the response data, because we already have an Axios instance that holds the baseURL assigned to a variable (client).
+
+Using the .data property, we obtain the response data, which is the actual data from the response object.
+
+```javascript
+const App = () => {
+   const [posts, setPosts] = useState([]);
+
+   useEffect(() => {
+      client.get('?_limit=10').then((response) => {
+         setPosts(response.data);
+      });
+   }, []);
+
+   return (
+      // ...react code to consume the response from axios
+   );
+};
+
+export default App;
+```
+
+### How to Make a POST Request with Axios in React
+
+It works similarly to a `GET` request, except that the function created to perform this task will be triggered when the form is submitted or otherwise.
+
+This takes an object to send the data in and also adds the data to the state by spreading the previous data and then adding the new data:
+
+
+```javascript
+
+const App = () => {
+   const [title, setTitle] = useState('');
+   const [body, setBody] = useState('');
+   const [posts, setPosts] = useState([]);
+
+   // ...
+
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      addPosts(title, body);
+   };
+
+   const addPosts = (title, body) => {
+      client
+         .post('', {
+            title: title,
+            body: body,
+         })
+         .then((response) => {
+            setPosts([response.data, ...posts]);
+         });
+      setTitle('');
+      setBody('');
+   };
+   
+   return (
+      // ...
+   );
+};
+
+export default App;
+```
+
+When the form is submitted, we call the `handleSubmit()` function, which prevents the page from reloading. It also calls the main function `addPosts()` by passing the data entered into the form as a parameter.
+
+### How to Perform a DELETE Request in React
+
+For this, we will use the DELETE method in conjunction with the client variable where we initialized Axios. This is how the request will look:
+
+```javascript
+
+const App = () => {
+   const [posts, setPosts] = useState([]);
+
+   // ...
+
+   const deletePost = (id) => {
+      client.delete(`${id}`);
+      setPosts(
+         posts.filter((post) => {
+            return post.id !== id;
+         })
+      );
+   };
+
+   return (
+      // ...
+   );
+};
+
+export default App;
+
+```
+
+Basically, there is a `onClick()` method on the delete button that triggers the deletePost() method. We passed it the ID of the particular post we are attempting to delete so we can identify the post.
+
+### How to Make Requests in React with `Async/Await`
+
+we can use async/await to write less code and avoid the .then chaining, which is much more difficult to understand.
+
+To use async/await, first call async in the function. Then add the await syntax in front of the function when making a request and expecting a response to wait until the promise settles with the result.
+
+When we use async/await, all of our Axios requests will look like this:
+
+```javascript
+const App = () => {
+   const [title, setTitle] = useState('');
+   const [body, setBody] = useState('');
+   const [posts, setPosts] = useState([]);
+
+    // GET with Axios
+   useEffect(() => {
+      const fetchPost = async () => {
+         let response = await client.get('?_limit=10');
+         setPosts(response.data);
+      };
+      fetchPost();
+   }, []);
+
+   // DELETE with Axios
+   const deletePost = async (id) => {
+      await client.delete(`${id}`);
+      setPosts(
+         posts.filter((post) => {
+            return post.id !== id;
+         })
+      );
+   };
+    
+   // handle form submission
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      addPosts(title, body);
+   };
+
+   // POST with Axios
+   const addPosts = async (title, body) => {
+      let response = await client.post('', {
+         title: title,
+         body: body,
+      });
+      setPosts([response.data, ...posts]);
+      setTitle('');
+      setBody('');
+   };
+
+   return (
+      // ...
+   );
+};
+
+```
+
+### How to Handle Errors in Axios
+When consuming data from an API, it is always recommended that we handle errors to help show the type of error we get. These errors may occur as a result of us passing incorrect data, making a request to the incorrect API, or experiencing a network error.
+
+We can handle errors in Axios by using the `.then()` and `.catch()` methods, or by using the `try...catch` block for `async/await` Axios requests.
+
+You can implement this by attaching a .catch() method to the .then() method to handle errors. Suppose the .then() method fails:
+
+```javascript
+useEffect(() => {
+  client
+     .get('?_limit=10')
+     .then((response) => {
+        setPosts(response.data);
+     })
+     .catch((error) => {
+        console.log(error);
+     });
+}, []);
+```
+
+ async/await scenario, the try...catch block will look like this
+ 
+ ```javascript
+ useEffect(() => {
+  const fetchPost = async () => {
+     try {
+        let response = await client.get('?_limit=10');
+        setPosts(response.data);
+     } catch (error) {
+        console.log(error);
+     }
+  };
+  fetchPost();
+}, []);
+```
