@@ -1,5 +1,111 @@
 # fundamental-of-javascrips
 
+***Javascript***  is one of the most widely used web development languages.
+This was originally designed to build dynamic web pages may now be run on the server and on almost any device that has the JavaScript Engine installed.
+JavaScript is a scripting language that may be used to construct online and mobile apps, web servers, games, and more. Even today, the server-side version of JavaScript known as Node.js
+
+### What are the different data types present in javascript?
+
+To know the type of a JavaScript variable, we can use the typeof operator.
+1. Primitive types
+ - String
+ - Number
+ - Boolean
+ - undefined
+ - null
+2.Non-primitive types
+ Primitive data types can store only a single value. To store multiple and complex values, non-primitive data types are used.
+ - Object - Used to store collection of data.
+###  Difference between “ == “ and “ === “ operators.
+
+Both are comparison operators. The difference between both the operators is that “==” is used to compare values whereas, “ === “ is used to compare both values and types.
+```javascript
+var x = 2;
+var y = "2";
+(x == y)  // Returns true since the value of both x and y is the same
+(x === y) // Returns false since the typeof x is "number" and typeof y is "string"
+
+```
+
+### Difference between var and let keyword in javascript.
+
+### Explain Hoisting in javascript.
+
+### Is javascript a statically typed or a dynamically typed language?
+
+JavaScript is a dynamically typed language. In a dynamically typed language, the type of a variable is checked during run-time in contrast to a statically typed language, where the type of a variable is checked during compile-time.
+Since javascript is a loosely(dynamically) typed language, variables in JS are not associated with any type. A variable can hold the value of any data type.
+
+For example, a variable that is assigned a number type can be converted to a string type:
+
+```javascript
+var a = 23;
+var a = "Hello World!";
+
+```
+### What is NaN property in JavaScript?
+NaN property represents the “Not-a-Number” value. It indicates a value that is not a legal number.
+
+typeof of NaN will return a Number.
+
+To check if a value is NaN, we use the isNaN() function,
+Note- isNaN() function converts the given value to a Number type, and then equates to NaN.
+ 
+ ### What is an Immediately Invoked Function in JavaScript?
+An Immediately Invoked Function  is a function that runs as soon as it is defined.
+***syntax***
+```javascript
+(function(){ 
+  // Do something;
+})();
+```
+
+###  What do you mean by strict mode in javascript and characteristics of javascript strict-mode?
+In ECMAScript 5, a new feature called JavaScript Strict Mode allows you to write a code or a function in a "strict" operational environment.
+
+***Characteristics of strict mode in javascript***
+
+- Duplicate arguments are not allowed by developers.
+- In strict mode, you won't be able to use the JavaScript keyword as a parameter or function name.
+- The 'use strict' keyword is used to define strict mode at the start of the script. Strict mode is supported by all browsers.
+- Engineers will not be allowed to create global variables in 'Strict Mode.
+
+
+### Explain Higher Order Functions in javascript.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## sort() methods
 
 > Array of Strings
