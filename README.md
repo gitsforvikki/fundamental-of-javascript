@@ -27,9 +27,6 @@ var y = "2";
 
 ```
 
-### Difference between var and let keyword in javascript.
-
-### Explain Hoisting in javascript.
 
 ### Is javascript a statically typed or a dynamically typed language?
 
