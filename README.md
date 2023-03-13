@@ -70,11 +70,48 @@ In ECMAScript 5, a new feature called JavaScript Strict Mode allows you to write
 
 ### Explain Higher Order Functions in javascript.
 
+A “higher-order function” is a function that accepts functions as parameters and/or returns a function.
 
 
+```javascript
+// Function containing logic for filtering out odd numbers
 
+function isOdd(x) {
+  return x % 2 != 0;
+}
 
+// Function containing logic for filtering out even numbers
 
+function isEven(x) {
+  return x % 2 === 0;
+}
+```
+Here filterFunction is the higher order function because it take callback function as a parameter
+```javascript
+function filterFunction(arr, callback) {
+  const filteredArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i]) ? filteredArr.push(arr[i]) : null;
+  }
+  return filteredArr;
+}
+```
+
+calling the higher order function with passing isOdd and isEven as  callback function.
+
+```javascript
+// For filtering out odd numbers
+
+filterFunction(arr, isOdd)
+// Output of console.log(filterFunction(arr, isOdd)):
+// [ 1, 3, 5, 7, 9, 11 ]
+
+// For filtering out even numbers
+
+filterFunction(arr, isEven)
+// Output of console.log(filterFunction(arr, isEven)):
+// [ 2, 4, 6, 8, 10 ]
+```
 
 
 
