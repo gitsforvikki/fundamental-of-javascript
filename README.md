@@ -894,6 +894,7 @@ JavaScript secretly creates temporary objects called Primitive Wrapper Objects.
 | `true`     | `Boolean`      |
 | `10n`      | `BigInt`       |
 | `Symbol()` | `Symbol`       |
+
 This process is called auto-boxing.
 
 #### How it works (internally)
@@ -989,7 +990,143 @@ Why it exists
 
 To create guaranteed unique values.
 ### 2️⃣ Object & Function (Foundation objects)
+| Object     | Purpose               |
+| ---------- | --------------------- |
+| `Object`   | Base of all objects   |
+| `Function` | Base of all functions |
 
+#### 1️⃣ Object – The Root of Everything
+#### The core idea 🧠
+
+JavaScript is an object-based language.
+That means:
+Almost everything in JavaScript is an object (or comes from one).
+To make this possible, JavaScript needs two root building blocks:
+  > Object → base of all objects
+  > Function → base of all functions (which are special objects)
+
+#### How Object helps us
+
+ Because of Object, every object automatically gets common methods:
+```javascript
+const user = { name: "Vikash" };
+
+user.toString();        // inherited from Object
+"user".hasOwnProperty; // via Object → String wrapper
+```
+
+
+```javascript
+const user = {};
+console.log(user.toString());
+
+function greet() {}
+console.log(greet instanceof Function); // true
+```
+> 👉 Everything in JS comes from Object
+
+
+> Common methods from Object.prototype
+
+   toString()
+   hasOwnProperty()
+   valueOf()
+   isPrototypeOf()
+   Without Object, every object would need to re-implement these
+   
+#### 2️⃣ Function – The Engine of JavaScript
+Why Function exists
+JavaScript treats functions as first-class citizens.
+
+That means functions can:
+   Be stored in variables
+   Be passed as arguments
+   Be returned from functions
+   To support this, JS made functions special objects.
+   
+```javascript
+function greet() {}
+greet instanceof Function; // true
+```
+> How Function helps us
+ Because functions are objects, they can:
+1) 1️⃣ Have properties
+   
+```javascript
+   function add(a, b) {
+  return a + b;
+}
+add.description = "Adds two numbers";
+```
+2) 2️⃣ Have built-in methods:- call, apply and bind
+3) 3️⃣ Enable higher-order functions
+
+### 3️⃣ Collection Objects (Data structures)
+
+| Object    | Use case                    |
+| --------- | --------------------------- |
+| `Array`   | Ordered list                |
+| `Map`     | Key–value (any type of key) |
+| `Set`     | Unique values               |
+| `WeakMap` | Weakly held object keys     |
+| `WeakSet` | Weakly held objects         |
+
+```javascript
+const set = new Set([1, 2, 2, 3]);
+console.log(set); // {1, 2, 3}
+```
+### 4️⃣ Date & Time
+
+| Object | Purpose                  |
+| ------ | ------------------------ |
+| `Date` | Date & time manipulation |
+
+```javascript
+const now = new Date();
+console.log(now.toISOString());
+```
+### 5️⃣ Math & Number utilities
+| Object | Purpose                 |
+| ------ | ----------------------- |
+| `Math` | Mathematical operations |
+| `JSON` | Parse & stringify JSON  |
+
+```javascript
+Math.max(10, 20);
+JSON.parse('{"a":1}');
+```
+### 6️⃣ Error Objects (Exception handling)
+
+| Object           |
+| ---------------- |
+| `Error`          |
+| `TypeError`      |
+| `ReferenceError` |
+| `SyntaxError`    |
+| `RangeError`     |
+| `URIError`       |
+| `AggregateError` |
+
+```javascript
+try {
+  undefinedFunc();
+} catch (error) {
+  console.log(error instanceof ReferenceError); // true
+}
+```
+### 7️⃣ Promise & Async Objects
+
+| Object          | Purpose               |
+| --------------- | --------------------- |
+| `Promise`       | Async operations      |
+| `AsyncFunction` | `async function` type |
+
+```javascript
+const promise = new Promise((resolve) => {
+  resolve("Done");
+});
+
+```
 
 
 
