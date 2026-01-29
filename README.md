@@ -1,4 +1,4 @@
-# fundamental-of-javascrips
+# fundamental-of-javascript
 
 ***Javascript***  is one of the most widely used web development languages.
 This was originally designed to build dynamic web pages may now be run on the server and on almost any device that has the JavaScript Engine installed.
@@ -567,7 +567,7 @@ console.log([1, , 3].includes(undefined)); // true
 
 
 
-##Map, Reduce, and Filter  JS Array Functions
+## Map, Reduce, and Filter  JS Array Functions
 
 Map, reduce, and filter are all array methods in JavaScript. Each one will iterate over an array and perform a transformation or computation.
 ## map() method
@@ -719,9 +719,8 @@ console.log(employees);
 - for-of loop
 
 > while loop
+Before the statement is executed, condition is tested. If it evaluates to true, then the statement is executed. As long as condition is true, the statement continues to execute.
 
-
-        Before the statement is executed, condition is tested. If it evaluates to true, then the statement is executed. As long as condition is true, the         statement continues to execute. 
 ```javascript
     let e = 0;
     while (e < 4) {
@@ -730,7 +729,6 @@ console.log(employees);
     }
 ```
 > do-while loop
-
 
 The first thing that happens in this loop is the statement is executed. Once that happens, condition is checked. If condition evaluates to true, the statement executes again. 
 
@@ -759,7 +757,6 @@ do {
 
 > for...in loop
 
-
 A for…in loop is used with an object in JavaScript. It’s structured like the following:
 
 ```javascript
@@ -785,11 +782,55 @@ for(const meal in foodIAte) {
 //For lunch, I ate salad.
 //For dinner, I ate pizza.
 ```
+```javascript
+const user = {
+  name: "Vikash",
+  role: "Frontend Dev",
+  experience: 3,
+};
+
+for (const key in user) {
+  console.log(key);        // name, role, experience
+  console.log(user[key]); // Vikash, Frontend Dev, 3
+}
+```
+Instead of referencing the key, as it does for objects, it references the index of a given element in the array.
+If we want to access the element itself, our code would look like this.
+```javascript
+let arr = [1, 2, 3]
+for (idx in arr) {
+  console.log(arr[idx])
+}
+// 1
+// 2
+// 3
+```
+
+When to use for...in
+
+✅ When you want to:
+
+Iterate over object properties
+Work with keys + values
+Handle dynamic objects (API responses, configs)
+
+❌ When NOT to use it
+
+Arrays (very important 🚨)
+When order matters
+When you only want values
 
 > For…of loops
 
+The last loop is the for…of loop. for...of loops over values of an iterable. The for…of loop can be used with iterable objects, which includes arrays, maps, sets, strings, and more. 
+It’s structured like the following:
 
-The last loop is the for…of loop. The for…of loop can be used with iterable objects, which includes arrays, maps, sets, strings, and more. It’s structured like the following:
+Works with:
+ Arrays
+ Strings
+ Maps
+ Sets
+ NodeLists
 
 ```javascript
 const string = “cat”;
