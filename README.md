@@ -852,8 +852,146 @@ for (const value of array) {
 //5 10 15
 ```
 ## Javascript predefined core objects
+Predefined core objects are built-in objects provided by JavaScript itself.
+They are available globally and don’t require any library or import.
 
-The predefined core objects are Array , Boolean , Date , Function , Math , Number , RegExp , and String .
+👉 They help you work with numbers, strings, arrays, dates, errors, async code, and more.
+
+## Main categories of core JavaScript objects
+### 1️⃣ Primitive Wrapper Objects
+
+JavaScript has primitives, but it provides object wrappers so you can call methods on them.
+| Object    | Used for               |
+| --------- | ---------------------- |
+| `String`  | Text manipulation      |
+| `Number`  | Numbers & math helpers |
+| `Boolean` | true / false           |
+| `BigInt`  | Very large integers    |
+| `Symbol`  | Unique identifiers     |
+
+#### Why Primitive Wrapper Objects Exist in JavaScript
+#### The core problem 🧠
+
+JavaScript has primitive values:
+```javascript
+string, number, boolean, bigint, symbol, null, undefined
+```
+👉 Primitives are NOT objects
+ They can’t store properties
+ They don’t have methods
+ 
+ So this should NOT work in theory:
+```javascript
+"hello".toUpperCase(); // ❓ how is this possible?
+```
+The solution 💡 → Wrapper Objects
+
+JavaScript secretly creates temporary objects called Primitive Wrapper Objects.
+| Primitive  | Wrapper Object |
+| ---------- | -------------- |
+| `"text"`   | `String`       |
+| `123`      | `Number`       |
+| `true`     | `Boolean`      |
+| `10n`      | `BigInt`       |
+| `Symbol()` | `Symbol`       |
+This process is called auto-boxing.
+
+#### How it works (internally)
+When you write:
+```javascript
+"hello".toUpperCase();
+```
+JavaScript does this behind the scenes:
+```javascript
+new String("hello").toUpperCase();
+```
+Then immediately destroys the object.
+⚠️ You never see this happening — JS does it for convenience.
+
+#### How Wrapper Objects Help
+#### 1️⃣ They allow methods on primitives
+Without wrappers, this would be impossible:
+```javascript
+const name = "vikash";
+
+name.toUpperCase(); // ✅ works because of String wrapper
+name.length;        // ✅ property access
+```
+#### 2️⃣ They keep JavaScript simple + powerful
+
+ Developers use simple values
+ JavaScript gives object-like behavior
+ No manual conversions needed
+ Best of both worlds 🎯
+
+#### Each Wrapper Object: WHY + USE CASES
+#### 1️⃣ String wrapper
+Why it exists
+To provide text manipulation methods on string primitives.
+
+Helps with
+  Case conversion
+  Searching
+  Splitting
+  Replacing
+  Common use cases
+
+```javascript
+const email = "USER@GMAIL.COM";
+
+email.toLowerCase();        // normalize input
+email.includes("@gmail");  // validation
+email.trim();              // remove spaces
+email.split("@");          // parsing
+```
+#### 2️⃣ Number wrapper
+To provide number utility methods.
+
+> Helps with
+ Type checks
+ Formatting
+ Precision handling
+
+> Common use cases
+```javascript
+const price = 99.5678;
+
+price.toFixed(2);     // "99.57"
+Number.isInteger(10); // true
+Number.isNaN(NaN);    // true
+```
+#### 3️⃣ Boolean wrapper
+> To standardize true / false behavior and logical checks.
+```javascript
+const isLoggedIn = Boolean(token);
+Boolean(false);        // false
+new Boolean(false);   // ⚠️ true (object)
+```
+❌ Never use new Boolean()
+
+#### 4️⃣ BigInt wrapper
+Why it exists
+JavaScript Number breaks after:
+```javascript
+Number.MAX_SAFE_INTEGER // 9007199254740991
+```
+Helps with
+ Very large integers
+ Financial & scientific calculations
+```javascript
+const big = 123456789012345678901234567890n;
+
+big + 10n; // ✅
+```
+
+#### 5️⃣ Symbol wrapper
+Why it exists
+
+To create guaranteed unique values.
+### 2️⃣ Object & Function (Foundation objects)
+
+
+
 
 
 ## Math object
