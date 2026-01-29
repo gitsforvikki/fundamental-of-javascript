@@ -113,10 +113,61 @@ filterFunction(arr, isEven)
 // [ 2, 4, 6, 8, 10 ]
 ```
 
+## Array(Collection object / Data Structure)
 
+>The following statements create equivalent arrays:
+```javascript
+const arr1 = new Array(element0, element1, /* …, */ elementN);
+const arr2 = Array(element0, element1, /* …, */ elementN);
+const arr3 = [element0, element1, /* …, */ elementN];
+```
+> To create an array with non-zero length, but without any items, either of the following can be used:
+```javascript
+// This...
+const arr1 = new Array(arrayLength);
 
+// … results in the same array as this
+const arr2 = Array(arrayLength);
 
+// This has exactly the same effect
+const arr3 = [];
+arr3.length = arrayLength;
+```
+> This creates an array with no elements and arr.length set to 42.
+```javascript
+const arr = Array(42);
+// this is equavalent to
 
+const arr = [];
+arr.length = 42;
+```
+> Range error while access array element
+```javascript
+const arr = Array(9.3); // RangeError: Invalid array length
+```
+> Understanding length
+Remember, JavaScript Array indexes are 0-based: they start at 0, not 1. This means that the length property will be one more than the highest index stored in the array:
+
+```javascript
+const cats = [];
+cats[30] = ["Dusty"];
+console.log(cats.length); // 31
+```
+> You can also assign to the length property.
+Writing a value that is shorter than the number of stored items truncates the array. Writing 0 empties it entirely:
+```javascript
+const cats = ["Dusty", "Misty", "Twiggy"];
+console.log(cats.length); // 3
+
+cats.length = 2;
+console.log(cats); // [ 'Dusty', 'Misty' ] - Twiggy has been removed
+
+cats.length = 0;
+console.log(cats); // []; the cats array is empty
+
+cats.length = 3;
+console.log(cats); // [ <3 empty items> ]
+```
 
 
 
