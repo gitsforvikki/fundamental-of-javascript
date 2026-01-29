@@ -461,6 +461,14 @@ console.log(food); //['pizza', 'cake',  'cookie']
 The slice and splice array methods might seem similar to each other, but there are a few key differences.
 
 The slice() method can be used to create a copy of an array or return a portion of an array. It is important to note that the slice() method does not alter the original array but instead creates a shallow copy.
+## flat()
+The flat() method returns a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+```javascript
+let myArray = [1, 2, [3, 4]];
+myArray = myArray.flat();
+// myArray is now [1, 2, 3, 4], since the [3, 4] subarray is flattened
+
+```
 
 ## indexof() method
 
@@ -587,6 +595,19 @@ const isSubset = (array1, array2) =>
 console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 7, 6])); // true
 console.log(isSubset([1, 2, 3, 4, 5, 6, 7], [5, 8, 7])); // false
 ```
+## some()
+The some() method returns true if callback returns true for at least one item in the array.
+```javascrpt
+function isNumber(value) {
+  return typeof value === "number";
+}
+const a1 = [1, 2, 3];
+console.log(a1.some(isNumber)); // true
+const a2 = [1, "2", 3];
+console.log(a2.some(isNumber)); // true
+const a3 = ["1", "2", "3"];
+console.log(a3.some(isNumber)); // false
+```
 
 ## include() mothod
 The `includes()` method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
@@ -647,6 +668,15 @@ const doubled = numbers.map(item => item * 2);
 console.log(doubled); // [2, 4, 6, 8]
 
 ```
+
+## flatMap()
+The flatMap() method runs map() followed by a flat() of depth 1.
+```javascript
+const a1 = ["a", "b", "c"];
+const a2 = a1.flatMap((item) => [item.toUpperCase(), item.toLowerCase()]);
+console.log(a2); // ['A', 'a', 'B', 'b', 'C', 'c']
+```
+
 ## filter() array
 The `filter()` method takes each element in an array and it applies a conditional statement against it. If this conditional returns true, the element gets pushed to the output array. If the condition returns false, the element does not get pushed to the output array.
 
